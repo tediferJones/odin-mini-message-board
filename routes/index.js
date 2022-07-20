@@ -12,11 +12,26 @@ const messages = [
     user: "Charles",
     added: new Date()
   }
-]
+];
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Mini Messageboard', messages: messages });
+});
+
+router.get('/new', function(req, res, next) {
+  res.render('form', { title: "New Mini Message" });
+});
+
+router.post('/new', function(req, res, next) {
+  messages.push(
+    {
+      text: req.body.messageContent,
+      user: req.body.user,
+      added: new Date()
+    }
+  );
+  res.redirect('/')
 });
 
 module.exports = router;

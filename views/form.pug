@@ -1,0 +1,25 @@
+extends layout 
+
+block content
+  h1= title
+
+  form(method='POST', action='/new')
+    label(for='messageContent') Message Contents:
+    br
+    input(
+      type='text'
+      name='messageContent'
+      id='messageContent'
+   )
+
+    br
+
+    label(for='user') Name:
+    br
+    input(
+      type='text'
+      name='user'
+      id='user'
+    )
+    br
+    button(type='submit') Add Message
